@@ -28,7 +28,8 @@ app.use(bodyParser.json())
 
 
 //User
-app.use("/enter/",userRoutes)
+app.use("/",userRoutes)
+
 
 //Admin
 //app.use("/enter/admin/",adminRoutes)
