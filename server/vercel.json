@@ -5,8 +5,10 @@
     ],
 
     "routes": [
-    { "src": "/enter/(.*)", "dest": "/" }
-    ]
+        { "src": "/enter/(.*)", "dest": "/app.js" },
+        { "src": "/(.*)", "dest": "/app.js" }
+      ]
+      
     
 }
 
