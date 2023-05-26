@@ -263,4 +263,8 @@ const deletePost=async(req,res)=>{
     }
 }
 
-export {signUp,signIn,deletePost,getComments,commentDetails,updateDetails,newPost,getEachData,getData,getUser,logOut,logCheck};
+const check=(req,res)=>{
+    res.json({"message":"Welcome"})
+}
+
+export {signUp,signIn,deletePost,check,getComments,commentDetails,updateDetails,newPost,getEachData,getData,getUser,logOut,logCheck};

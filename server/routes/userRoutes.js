@@ -1,8 +1,9 @@
 import express from 'express'
-import {signUp,signIn,getUser,deletePost,getComments,commentDetails,getEachData,newPost,logOut,updateDetails,logCheck,getData} from '../controllers/userController.js'
+import {signUp,signIn,check,getUser,deletePost,getComments,commentDetails,getEachData,newPost,logOut,updateDetails,logCheck,getData} from '../controllers/userController.js'
 
 const router = express.Router()
 
+router.route('/').get(check)
 router.route('/signin').post(signIn)
 router.route('/signup').post(signUp)
 router.route('/logout').get(logOut)
