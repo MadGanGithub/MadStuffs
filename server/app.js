@@ -29,6 +29,9 @@ app.use(bodyParser.json())
 
 //User
 app.use("/enter/",userRoutes)
+app.use("/",(req,res)=>{
+    res.json({"message":"Welcome out"})
+})
 //Admin
 //app.use("/enter/admin/",adminRoutes)
 
