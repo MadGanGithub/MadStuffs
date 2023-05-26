@@ -29,7 +29,7 @@ app.use(bodyParser.json())
 
 //User
 // app.use("/",userRoutes)
-app.get("/",(req,res)=>{
+app.get('/',(req,res)=>{
     res.json({"message":"lskdjf"})
 })
 
