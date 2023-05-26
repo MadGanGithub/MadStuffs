@@ -14,7 +14,7 @@ const Fab = () => {
     useEffect(()=>{
   
            async function func(){
-                  await axios.get("http://localhost:4100/enter/logcheck",{
+                  await axios.get("http://localhost:4100/logcheck",{
                          withCredentials:true
                   }).then(response=>{
                     setToken(response.data)

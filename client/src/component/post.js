@@ -25,7 +25,7 @@ function ActionAreaCard(){
     console.log(logged)
          async function func(){
           console.log(logged)
-         const response=await axios.get(`http://localhost:4100/enter/getdata?search=${searchResults}`,{
+         const response=await axios.get(`http://localhost:4100/getdata?search=${searchResults}`,{
          withCredentials:true
          }); 
          setData(response.data)

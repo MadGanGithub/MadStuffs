@@ -10,13 +10,6 @@ import cors from "cors";
 //import adminRoutes from './routes/adminRoutes.js'
 const app=express();
 
-
-//Settings
-dotenv.config({ path: "./config/config.env" });
-
-//Database Connection
-connectionDB();
-
 //cors 
 app.use(cors({
     credentials:true,
@@ -34,8 +27,17 @@ app.use(cookieParser())
 //app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 
+
+
+
 //User
 app.use("/",userRoutes)
+
+//Settings
+dotenv.config({ path: "./config/config.env" });
+
+//Database Connection
+connectionDB();
 
 //Listen to the port
 app.listen(process.env.PORT,()=>{

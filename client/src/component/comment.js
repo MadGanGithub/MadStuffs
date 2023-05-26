@@ -17,7 +17,7 @@ const Comment = () => {
             email:email,
             comment:comment
         }
-        await axios.post(`http://localhost:4100/enter/comments/${id}`,commentDetails)
+        await axios.post(`http://localhost:4100/comments/${id}`,commentDetails)
         console.log("test")
     }
 

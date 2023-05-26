@@ -24,7 +24,7 @@ function ActionAreaCard(){
   useEffect(()=>{
 
          async function func(){
-                await axios.get("http://localhost:4100/enter/getuser",{
+                await axios.get("http://localhost:4100/getuser",{
                        withCredentials:true
                 }).then(response=>{
                   setAuthor(response.data)
@@ -39,7 +39,7 @@ function ActionAreaCard(){
 
   useEffect(()=>{
          async function func(){
-         const response=await axios.get("http://localhost:4100/enter/getdata",{
+         const response=await axios.get("http://localhost:4100/getdata",{
          withCredentials:true
          }); 
          setData(response.data)
@@ -51,7 +51,7 @@ function ActionAreaCard(){
 
   const handleDelete=async(post_id)=>{
     console.log(post_id)
-    await axios.delete(`http://localhost:4100/enter/deletepost/${post_id}`)
+    await axios.delete(`http://localhost:4100/deletepost/${post_id}`)
     toast.success("Deleted the post successfully")
     navigate('/')
   }
