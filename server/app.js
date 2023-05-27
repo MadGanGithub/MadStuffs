@@ -10,7 +10,7 @@ const app=express();
 //cors 
 app.use(cors({
     credentials:true,
-    origin:"http://localhost:3000"
+    origin:"https://mad-stuffs.vercel.app"
 }))
 
 //This converts request body to json 
