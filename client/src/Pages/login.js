@@ -55,11 +55,15 @@ export default function SignIn() {
     
         console.log(login_details)
 
+        try{
         await axios.post("https://madstuffs-backend.onrender.com/signin",login_details,{
           withCredentials:true
         }).then(response=>{
           setLogged(true)
         })
+      }catch(err){
+        console.log(err+"shithshihsdif")
+      }
         
       }catch(err){
         console.log("Error bhaiya")
