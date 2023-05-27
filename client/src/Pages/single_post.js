@@ -25,7 +25,7 @@ const SinglePost = () => {
   useEffect(()=>{
 
          async function func(){
-                await axios.get("http://localhost:4100/enter/getuser",{
+                await axios.get("https://madstuffs-backend.onrender.com/getuser",{
                        withCredentials:true
                 }).then(response=>{
                   setAuthor(response.data)

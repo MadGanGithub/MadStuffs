@@ -170,6 +170,7 @@ const getUser=(req,res)=>{
 
     try{
         const token=req.cookies.jwt
+        console.log(process.env.JWT_SECRET)
         const decoded=jwt.verify(token,process.env.JWT_SECRET)
         const username=decoded.username
         res.send(username)
