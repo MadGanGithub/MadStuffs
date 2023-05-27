@@ -105,7 +105,7 @@ const SinglePost = () => {
       author:author
     }
 
-    await axios.post("http://localhost:4100/enter/newpost",details,{
+    await axios.post("https://madstuffs-backend.onrender.com/newpost",details,{
       withCredentials:true
     });
     navigate('/')
