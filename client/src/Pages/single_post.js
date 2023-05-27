@@ -109,7 +109,7 @@ const SinglePost = () => {
       withCredentials:true
     });
     navigate('/')
-    toast.success("Post has been created successfully")
+    toast.success("Post created successfully")
 
   }
   
