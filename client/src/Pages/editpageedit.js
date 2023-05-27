@@ -26,7 +26,7 @@ const EditPage = () => {
     useEffect(()=>{
   
            async function func(){
-                  await axios.get("http://localhost:4100/enter/getuser",{
+                  await axios.get("https://madstuffs-backend.onrender.com/getuser",{
                          withCredentials:true
                   }).then(response=>{
                     setAuthor(response.data)
@@ -41,7 +41,7 @@ const EditPage = () => {
       
       async function fetchData() {
 
-        const response = await axios.get(`http://localhost:4100/enter/geteach/${id}`, {
+        const response = await axios.get(`https://madstuffs-backend.onrender.com/geteach/${id}`, {
           withCredentials: true,
         });
         
@@ -59,7 +59,7 @@ const EditPage = () => {
         title:title,
         content:content
       }
-      await axios.put("http://localhost:4100/enter/updatepost",updatedDetails)
+      await axios.put("https://madstuffs-backend.onrender.com/updatepost",updatedDetails)
       toast.success("Updated")
       
     }

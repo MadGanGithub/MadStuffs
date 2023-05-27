@@ -19,7 +19,7 @@ const Display = () => {
   useEffect(() => {
     
     async function fetchData() {
-      const response = await axios.get(`http://localhost:4100/enter/geteach/${id}`, {
+      const response = await axios.get(`https://madstuffs-backend.onrender.com/geteach/${id}`, {
         withCredentials: true,
       });
       
