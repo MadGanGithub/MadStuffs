@@ -32,7 +32,7 @@ export default function SwipeableTemporaryDrawer() {
   useEffect(()=>{
     async function func(){
       if(logged==true){
-      await axios.get("http://localhost:4100/getuser",{
+      await axios.get("https://madstuffs-backend.onrender.com/getuser",{
         withCredentials:true
       }).then(response=>{ 
    setAuthor(response.data)
@@ -60,7 +60,7 @@ export default function SwipeableTemporaryDrawer() {
   const handleClick=async(event)=>{
     event.preventDefault();
 
-    await axios.get("http://localhost:4100/logout",{
+    await axios.get("https://madstuffs-backend.onrender.com/logout",{
       withCredentials:true
     }).then(()=>{
       setLogged(false)

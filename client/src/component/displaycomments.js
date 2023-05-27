@@ -9,7 +9,7 @@ const DisplayComments = () => {
 
     useEffect(()=>{
         async function fetchcomments(){
-            const response=await axios.get(`http://localhost:4100/getcomments/${id}`,{
+            const response=await axios.get(`https://madstuffs-backend.onrender.com/getcomments/${id}`,{
                 withCredentials:true
             })
             setDetails(response.data)
