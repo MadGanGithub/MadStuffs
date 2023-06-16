@@ -64,11 +64,15 @@ const signIn=async(req,res)=>{
         }
 
         //Token creation
+        try{
         const token=jwt.sign({
             username:found.username,
             password:found.password
         },process.env.JWT_SECRET)
-
+        }catch(error){
+            console.log(error)
+            console.log("testing signin")
+        }
         
         //Sends cookie
         res.cookie('jwt',token,{
