@@ -8,6 +8,9 @@
     "start": "node server.js",
     "build": "node server.js"
   },
+  "engines": {
+    "node": "18.18.2"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
