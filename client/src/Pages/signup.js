@@ -52,7 +52,7 @@ export default function SignIn() {
       };
 
       await axios
-        .post("http://localhost:4100/signup", details, {
+        .post("madstuffs.ap-south-1.elasticbeanstalk.com/signup", details, {
           withCredentials: true,
         })
         .then((response) => {

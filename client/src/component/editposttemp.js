@@ -22,7 +22,7 @@ function ActionAreaCard() {
   useEffect(() => {
     async function func() {
       await axios
-        .get("http://localhost:4100/getuser", {
+        .get("madstuffs.ap-south-1.elasticbeanstalk.com/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -34,7 +34,7 @@ function ActionAreaCard() {
 
   useEffect(() => {
     async function func() {
-      const response = await axios.get("http://localhost:4100/getdata", {
+      const response = await axios.get("madstuffs.ap-south-1.elasticbeanstalk.com/getdata", {
         withCredentials: true,
       });
       setData(response.data);
@@ -44,7 +44,7 @@ function ActionAreaCard() {
 
   const handleDelete = async (post_id) => {
     await axios
-      .delete(`http://localhost:4100/deletepost/${post_id}`)
+      .delete(`madstuffs.ap-south-1.elasticbeanstalk.com/deletepost/${post_id}`)
       .then((response) => {
         toast.success("Deleted the post successfully");
         navigate("/");
