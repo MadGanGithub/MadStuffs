@@ -13,7 +13,8 @@ export const LogProvider = ({ children }) => {
           withCredentials: true,
         })
         .then((response) => {
-          console.log("testing"+response)
+          console.log("testing")
+          console.log(response)
           setLogged(response.data);
         });
     };
