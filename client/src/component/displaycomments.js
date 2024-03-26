@@ -10,7 +10,7 @@ const DisplayComments = () => {
   useEffect(() => {
     async function fetchcomments() {
       const response = await axios.get(
-        `madstuffs.ap-south-1.elasticbeanstalk.com/getcomments/${id}`,
+        `http://madstuffs.ap-south-1.elasticbeanstalk.com/getcomments/${id}`,
         {
           withCredentials: true,
         }

@@ -22,7 +22,7 @@ function ActionAreaCard() {
   useEffect(() => {
     async function func() {
       const response = await axios.get(
-        `madstuffs.ap-south-1.elasticbeanstalk.com/getdata?search=${searchResults}`,
+        `http://madstuffs.ap-south-1.elasticbeanstalk.com/getdata?search=${searchResults}`,
         {
           withCredentials: true,
         }

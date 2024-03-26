@@ -21,7 +21,7 @@ const SinglePost = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("madstuffs.ap-south-1.elasticbeanstalk.com/getuser", {
+        .get("http://madstuffs.ap-south-1.elasticbeanstalk.com//getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -47,7 +47,7 @@ const SinglePost = () => {
     };
 
     await axios
-      .post("madstuffs.ap-south-1.elasticbeanstalk.com/newpost", details, {
+      .post("http://madstuffs.ap-south-1.elasticbeanstalk.com/newpost", details, {
         withCredentials: true,
       })
       .then((response) => {

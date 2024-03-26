@@ -35,7 +35,7 @@ const EditPage = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("madstuffs.ap-south-1.elasticbeanstalk.com/getuser", {
+        .get("http://madstuffs.ap-south-1.elasticbeanstalk.com/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -47,7 +47,7 @@ const EditPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`madstuffs.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
+      const response = await axios.get(`http://madstuffs.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -66,7 +66,7 @@ const EditPage = () => {
       content: content,
     };
     await axios
-      .put("madstuffs.ap-south-1.elasticbeanstalk.com/updatepost", updatedDetails)
+      .put("http://madstuffs.ap-south-1.elasticbeanstalk.com/updatepost", updatedDetails)
       .then((response) => {
         toast.success(response.data.message);
       });
