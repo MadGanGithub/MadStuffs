@@ -2,12 +2,9 @@ import bcrypt from "bcrypt";
 
 //Hashes the password
 async function hashed(password,num){
-    try{
-        const hashed_password=await bcrypt.hash(password,num)
-        return hashed_password
-    }catch(err){
-        console.log(err)
-    }
+    const hashed_password=await bcrypt.hash(password,num)
+    return hashed_password
+
 }
 //Compares password with hashed password
 async function comparePassword(password,hashed){

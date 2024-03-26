@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const connectionDB=()=>{
-    mongoose.connect("mongodb+srv://tempemails047:K06AvJCf22SA5p90@cluster0.z1bbhx5.mongodb.net/?retryWrites=true&w=majority",{
+    mongoose.connect("mongodb+srv://madhavganesan95:dNiTAULlGgZzVwEi@cluster0.ih7gufu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",{
         useNewUrlParser:true,
         useUnifiedTopology:true
     }).then(db_meth=>(

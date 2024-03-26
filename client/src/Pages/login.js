@@ -1,93 +1,83 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { useState,useContext,useEffect} from 'react';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { useState, useContext } from "react";
 import axios from "axios";
-import { LogContext } from '../component/logcontext.js';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { LogContext } from "../component/logcontext.js";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="/">
         MadStuffs
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
 
-
-
 export default function SignIn() {
+  const [pass, setPass] = useState("");
+  const [email, setEmail] = useState("");
+  const { setLogged } = useContext(LogContext);
+  const navigate = useNavigate();
 
-    const [pass,setPass]=useState("")
-    const [email,setEmail]=useState("")
-    const {logged,setLogged}=useContext(LogContext)
-    const navigate=useNavigate()
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    useEffect(() => {
-      if (logged) {
-        toast.success("Loggedin Successfully")
-        navigate('/')
-      
-      }
-    }, [logged]);
+    const login_details = {
+      email: email,
+      password: pass,
+    };
 
-    const handleSubmit=async(event)=>{
-      event.preventDefault()
-      try{ 
-    
-        const login_details={
-          email:email,
-          password:pass,
-        };
-    
-        console.log(login_details)
-
-        try{
-        await axios.post("https://madstuffs-backend.onrender.com/signin",login_details,{
-          withCredentials:true
-        }).then(response=>{
-          setLogged(true)
-        })
-      }catch(err){
-        console.log(err+"shithshihsdif")
-      }
-        
-      }catch(err){
-        console.log("Error bhaiya")
-      }
-    }
+    await axios
+      .post("http://localhost:4100/signin", login_details, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        navigate("/");
+        toast.success(response.data.message);
+        setLogged(response.data.status);
+      });
+  };
 
   return (
     <div>
-      <Container  maxWidth="sm">
+      <Container maxWidth="sm">
         <Box
           sx={{
             marginTop: 12,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            boxShadow:5,
-            padding:5
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            boxShadow: 5,
+            padding: 5,
           }}
         >
-
           <Typography component="h1" variant="h5">
             SIGN IN
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
             <TextField
               margin="normal"
               required
@@ -98,7 +88,7 @@ export default function SignIn() {
               autoComplete="email"
               autoFocus
               value={email}
-              onChange={(e)=>setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -110,23 +100,23 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
               value={pass}
-              onChange={(e)=>setPass(e.target.value)}
+              onChange={(e) => setPass(e.target.value)}
             />
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              style={{backgroundColor:"black"}}
+              style={{ backgroundColor: "black" }}
             >
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
+              {/* <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
-              </Grid>
+              </Grid> */}
               <Grid item>
                 <Link href="/signup" variant="body2">
                   Don't have an account? Sign Up

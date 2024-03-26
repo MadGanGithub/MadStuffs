@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Dropzone from 'react-dropzone';
+import React, { useState } from "react";
+import axios from "axios";
+import Dropzone from "react-dropzone";
 
 const UploadForm = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -11,13 +11,12 @@ const UploadForm = () => {
 
   const handleUpload = async () => {
     const formData = new FormData();
-    formData.append('image', selectedFile);
+    formData.append("image", selectedFile);
 
     try {
-      await axios.post('/upload', formData);
-      console.log('Image uploaded successfully');
+      await axios.post("/upload", formData);
     } catch (error) {
-      console.error('Error uploading image', error);
+      console.error("Error uploading image", error);
     }
   };
 
