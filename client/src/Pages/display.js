@@ -14,7 +14,7 @@ const Display = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://madstuffs.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
+      const response = await axios.get(`https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
         withCredentials: true,
       });
 

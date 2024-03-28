@@ -46,7 +46,7 @@ export default function SignIn() {
     };
 
     await axios
-      .post("http://madstuffs.ap-south-1.elasticbeanstalk.com/signin", login_details, {
+      .post("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/signin", login_details, {
         withCredentials: true,
       })
       .then((response) => {
