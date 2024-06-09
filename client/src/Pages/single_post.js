@@ -16,12 +16,13 @@ const SinglePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
+  const [image,setImage]=useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     async function func() {
       await axios
-        .get("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/getuser", {
+        .get("http://localhost:4100/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -33,27 +34,43 @@ const SinglePost = () => {
 
   const handleCancel = (event) => {
     event.preventDefault();
-
     navigate("/");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    try{
+
+    const formData = new FormData();
+    formData.append('file', image);
+    var name;
+
+    await axios.post("http://localhost:4100/upload", formData, {
+      withCredentials: true,
+    })
+    .then((response) => {
+      toast.success("Image uploaded successfully");
+      name=response.data;
+    });
 
     const details = {
       title: title,
       content: content,
       author: author,
+      name:name.name
     };
 
     await axios
-      .post("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/newpost", details, {
+      .post("http://localhost:4100/newpost", details, {
         withCredentials: true,
       })
       .then((response) => {
         navigate("/");
         toast.success("Post created successfully");
       });
+    }catch(error){
+      console.log(error);
+    }
   };
 
   const handleTextChange = (value) => {
@@ -106,7 +123,14 @@ const SinglePost = () => {
               onChange={handleTextChange}
             />
 
-            {/* <input type="file" onChange={(e)=>setSelectedFile(e.target.files[0])} /> */}
+            <div style={{paddingTop:10}}>
+            <input type="file" id="file-input" hidden={true} required onChange={(e)=>setImage(e.target.files[0])} />
+            <label htmlFor="file-input">
+            <Button variant="contained" component="span" style={{ backgroundColor: "black", color: "white" }}>
+              Upload Image
+            </Button>
+            </label>
+            </div>
 
             <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>

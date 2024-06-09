@@ -9,7 +9,6 @@ import {
 import axios from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import cover from "../assets/cricket.png";
 import ReactQuill from "react-quill";
 import Button from "@mui/material/Button";
 import { toast } from "react-toastify";
@@ -35,7 +34,7 @@ const EditPage = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/getuser", {
+        .get("http://localhost:4100/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -47,7 +46,7 @@ const EditPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
+      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -66,7 +65,7 @@ const EditPage = () => {
       content: content,
     };
     await axios
-      .put("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/updatepost", updatedDetails)
+      .put("http://localhost:4100/updatepost", updatedDetails)
       .then((response) => {
         toast.success(response.data.message);
       });
@@ -91,7 +90,7 @@ const EditPage = () => {
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={cover}
+                image={`http://localhost:4100/uploads/${details.image_name}`}
               />
 
               <CardContent>

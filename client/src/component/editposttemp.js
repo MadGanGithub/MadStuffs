@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, CardActions } from "@mui/material";
 import { Box } from "@mui/system";
-import cover from "../assets/cricket.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,7 +21,7 @@ function ActionAreaCard() {
   useEffect(() => {
     async function func() {
       await axios
-        .get("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/getuser", {
+        .get("http://localhost:4100/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -34,7 +33,7 @@ function ActionAreaCard() {
 
   useEffect(() => {
     async function func() {
-      const response = await axios.get("https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/getdata", {
+      const response = await axios.get("http://localhost:4100/getdata", {
         withCredentials: true,
       });
       setData(response.data);
@@ -44,7 +43,7 @@ function ActionAreaCard() {
 
   const handleDelete = async (post_id) => {
     await axios
-      .delete(`https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/deletepost/${post_id}`)
+      .delete(`http://localhost:4100/deletepost/${post_id}`)
       .then((response) => {
         toast.success("Deleted the post successfully");
         navigate("/");
@@ -64,7 +63,7 @@ function ActionAreaCard() {
                       to={`/eachonly/${each._id}`}
                       style={{ textDecoration: "none", color: "black" }}
                     >
-                      <CardMedia component="img" height="150" image={cover} />
+                      <CardMedia component="img" height="150" image={`http://localhost:4100/uploads/${each.image_name}`} />
 
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

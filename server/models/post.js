@@ -6,13 +6,16 @@ const postSchema=new Schema({
     title:{
         type:String,
         required:true,
-        unique:true
     },
     content:{
         type:String,
         required:true
     },
     author:{
+        type:String,
+        required:true
+    },
+    image_name:{
         type:String,
         required:true
     },

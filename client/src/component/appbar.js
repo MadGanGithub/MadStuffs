@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha} from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,6 +9,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import titlelogo from "../assets/logo.png";
 import Draww from "./drawer.js";
 import { useState, useContext } from "react";
+import { useTheme,useMediaQuery } from '@mui/material';
 
 const style_box = {
   height: 30,
@@ -38,7 +39,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   pointerEvents: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-end",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -58,9 +59,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
 export default function SearchAppBar() {
   const [search, setSearch] = useState("");
   const { setSearchResults } = useContext(SearchContext);
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.up('sm'));
+
 
   const handlePress = (event) => {
     if (event.key == "Enter") {
@@ -73,12 +79,14 @@ export default function SearchAppBar() {
       <AppBar position="fixed" sx={{ bgcolor: "black" }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <Draww></Draww>
+
           <img src={titlelogo} style={style_box} />
 
-          <Search>
+          <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
+            {isSmallScreen && (
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
@@ -86,6 +94,7 @@ export default function SearchAppBar() {
               onKeyDown={handlePress}
               value={search}
             />
+            )}
           </Search>
         </Toolbar>
       </AppBar>

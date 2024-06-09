@@ -16,6 +16,7 @@ const Home = () => {
             alignItems: "center",
             boxShadow: 5,
             padding: 5,
+            paddingTop:20
           }}
         >
           <Typography component="h1" variant="h5">

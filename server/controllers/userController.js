@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import { comparePassword, hashed } from "../utils/authUtils.js";
 import Post from "../models/post.js";
 import Comment from "../models/comment.js";
+import fs from 'fs';
+import path from 'path';
 
 const signUp = async (req, res) => {
   try {
@@ -88,13 +90,15 @@ const newPost = async (req, res) => {
       title: req.body.title,
       content: req.body.content,
       author: req.body.author,
+      image_name:req.body.name
     });
 
     res.json({ status: "ok", message: "Post created successfully" });
+
   } catch (error) {
     res.status(500).send({
       success: false,
-      message: "Error",
+      message: error,
     });
   }
 };

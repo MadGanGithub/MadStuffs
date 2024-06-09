@@ -6,19 +6,34 @@ import { useParams } from "react-router-dom";
 const DisplayComments = () => {
   const { id } = useParams();
   const [details, setDetails] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchcomments() {
+      try{
       const response = await axios.get(
-        `https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/getcomments/${id}`,
+        `http://localhost:4100/getcomments/${id}`,
         {
           withCredentials: true,
         }
       );
       setDetails(response.data);
+    }catch(error){
+      console.log(error);
+    }finally{
+      setLoading(false);
+    }
     }
     fetchcomments();
   }, [id]);
+
+  if (loading) {
+    return (
+      <Typography variant="h5" component="h2">
+        Loading...
+      </Typography>
+    );
+  }
 
   return (
     <div>
@@ -56,7 +71,7 @@ const DisplayComments = () => {
           );
         })
       ) : (
-        <div>Loading.....</div>
+        <div>No Comments</div>
       )}
     </div>
   );

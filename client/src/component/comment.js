@@ -28,7 +28,7 @@ const Comment = () => {
       comment: comment,
     };
     await axios
-      .post(`https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/comments/${id}`, commentDetails)
+      .post(`http://localhost:4100/comments/${id}`, commentDetails)
       .then((response) => {
         toast.success(response.data.message);
         window.location.reload();

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import cover from "../assets/cricket.png";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,17 +10,32 @@ import Comment from "../component/comment.js";
 const Display = () => {
   const { id } = useParams();
   const [details, setDetails] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`https://madstuffsbackends.ap-south-1.elasticbeanstalk.com/geteach/${id}`, {
+      try{
+      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
         withCredentials: true,
       });
 
       setDetails(response.data);
+    }catch(error){
+      console.log(error);
+    }finally{
+      setLoading(false);
+    }
     }
     fetchData();
   }, [id]);
+
+  if (loading) {
+    return (
+      <Typography variant="h5" component="h2">
+        Loading...
+      </Typography>
+    );
+  }
 
   return (
     <div>
@@ -32,7 +46,7 @@ const Display = () => {
               component="img"
               alt="green iguana"
               height="140"
-              image={cover}
+              image={`http://localhost:4100/uploads/${details.image_name}`}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -48,7 +62,7 @@ const Display = () => {
         </div>
       ) : (
         <div>
-          <p>Loading...</p>
+          <p>Loading</p>
         </div>
       )}
 

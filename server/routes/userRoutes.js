@@ -12,7 +12,7 @@ import {
   logOut,
   updateDetails,
   logCheck,
-  getData,
+  getData
 } from "../controllers/userController.js";
 
 const router = express.Router();
