@@ -155,7 +155,7 @@ const getUser = (req, res) => {
   } catch (error) {
     res.status(500).send({
       success: false,
-      message: "Error",
+      message: error,
     });
   }
 };
@@ -167,7 +167,7 @@ const getEachData = async (req, res) => {
   } catch (error) {
     res.status(404).send({
       success: false,
-      message: "Internal error",
+      message: error,
     });
   }
 };
@@ -182,7 +182,7 @@ const updateDetails = async (req, res) => {
   } catch (error) {
     res.status(404).send({
       success: false,
-      message: "Internal error",
+      message: error,
     });
   }
 };
@@ -202,7 +202,7 @@ const commentDetails = async (req, res) => {
   } catch (error) {
     res.status(404).send({
       success: false,
-      message: "Internal error",
+      message: error,
     });
   }
 };
@@ -215,7 +215,7 @@ const getComments = async (req, res) => {
   } catch (error) {
     res.status(404).send({
       success: false,
-      message: "Internal error",
+      message: error,
     });
   }
 };
@@ -228,7 +228,7 @@ const deletePost = async (req, res) => {
   } catch (error) {
     res.status(404).send({
       success: false,
-      message: "Internal error",
+      message: error,
     });
   }
 };
