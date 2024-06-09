@@ -24,7 +24,7 @@ function ActionAreaCard() {
     async function func() {
       try{
       const response = await axios.get(
-        `http://localhost:4100/getdata?search=${searchResults}`,
+        `https://madstuffs-backend.onrender.com/getdata?search=${searchResults}`,
         {
           withCredentials: true,
         }
@@ -56,7 +56,7 @@ function ActionAreaCard() {
               <Box sx={{ mb: 5 }} key={each._id}>
                 <Card sx={{ width: { xs: 400,sm: 800 }}} key={each._id}>
                   <CardActionArea key={each._id}>
-                    <CardMedia component="img" height="150" image={`http://localhost:4100/uploads/${each.image_name}`} />
+                    <CardMedia component="img" height="150" image={`https://madstuffs-backend.onrender.com/uploads/${each.image_name}`} />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         {each.title}

@@ -34,7 +34,7 @@ const EditPage = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("http://localhost:4100/getuser", {
+        .get("https://madstuffs-backend.onrender.com/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -46,7 +46,7 @@ const EditPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
+      const response = await axios.get(`https://madstuffs-backend.onrender.com/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -65,7 +65,7 @@ const EditPage = () => {
       content: content,
     };
     await axios
-      .put("http://localhost:4100/updatepost", updatedDetails)
+      .put("https://madstuffs-backend.onrender.com/updatepost", updatedDetails)
       .then((response) => {
         toast.success(response.data.message);
       });
@@ -90,7 +90,7 @@ const EditPage = () => {
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={`http://localhost:4100/uploads/${details.image_name}`}
+                image={`https://madstuffs-backend.onrender.com/uploads/${details.image_name}`}
               />
 
               <CardContent>

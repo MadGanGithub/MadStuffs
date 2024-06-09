@@ -52,7 +52,7 @@ export default function SignIn() {
       };
 
       await axios
-        .post("http://localhost:4100/signup", details, {
+        .post("https://madstuffs-backend.onrender.com/signup", details, {
           withCredentials: true,
         })
         .then((response) => {

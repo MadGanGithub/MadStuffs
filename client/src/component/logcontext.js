@@ -9,7 +9,7 @@ export const LogProvider = ({ children }) => {
   useEffect(() => {
     const checkToken = async () => {
       await axios
-        .get("http://localhost:4100/logcheck", {
+        .get("https://madstuffs-backend.onrender.com/logcheck", {
           withCredentials: true,
         })
         .then((response) => {

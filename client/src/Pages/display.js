@@ -15,7 +15,7 @@ const Display = () => {
   useEffect(() => {
     async function fetchData() {
       try{
-      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
+      const response = await axios.get(`https://madstuffs-backend.onrender.com/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -46,7 +46,7 @@ const Display = () => {
               component="img"
               alt="green iguana"
               height="140"
-              image={`http://localhost:4100/uploads/${details.image_name}`}
+              image={`https://madstuffs-backend.onrender.com/uploads/${details.image_name}`}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
