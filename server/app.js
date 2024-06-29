@@ -15,9 +15,11 @@ const __dirname = path.dirname(__filename);
 const app=express();
 //cors 
 app.use(cors({
-    credentials:true,
-    origin:"https://mad-stuffs.vercel.app"
-}))
+  origin: 'https://mad-stuffs.vercel.app', 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+}));
 
 //This converts request body to json 
 app.use(express.urlencoded({ extended: true }));
