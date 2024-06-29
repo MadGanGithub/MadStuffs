@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "4100:4100"
+    environment:
+      NODE_ENV: production

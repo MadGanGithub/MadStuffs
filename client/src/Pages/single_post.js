@@ -22,7 +22,7 @@ const SinglePost = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("https://madstuffs-backend.onrender.com/getuser", {
+        .get("http://localhost:4100/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -45,7 +45,7 @@ const SinglePost = () => {
     formData.append('file', image);
     var name;
 
-    await axios.post("https://madstuffs-backend.onrender.com/upload", formData, {
+    await axios.post("http://localhost:4100/upload", formData, {
       withCredentials: true,
     })
     .then((response) => {
@@ -61,7 +61,7 @@ const SinglePost = () => {
     };
 
     await axios
-      .post("https://madstuffs-backend.onrender.com/newpost", details, {
+      .post("http://localhost:4100/newpost", details, {
         withCredentials: true,
       })
       .then((response) => {

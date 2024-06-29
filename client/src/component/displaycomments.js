@@ -12,7 +12,7 @@ const DisplayComments = () => {
     async function fetchcomments() {
       try{
       const response = await axios.get(
-        `https://madstuffs-backend.onrender.com/getcomments/${id}`,
+        `http://localhost:4100/getcomments/${id}`,
         {
           withCredentials: true,
         }
