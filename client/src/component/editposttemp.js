@@ -1,17 +1,17 @@
-import * as React from "react";
+import { CardActionArea, CardActions } from "@mui/material";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions } from "@mui/material";
 import { Box } from "@mui/system";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import * as React from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./style.css";
-import Button from "@mui/material/Button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./style.css";
 
 function ActionAreaCard() {
   const [data, setData] = useState([]);
@@ -21,7 +21,7 @@ function ActionAreaCard() {
   useEffect(() => {
     async function func() {
       await axios
-        .get("http://localhost:4100/getuser", {
+        .get("https://mad-stuffs-uc64.vercel.app/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -33,7 +33,7 @@ function ActionAreaCard() {
 
   useEffect(() => {
     async function func() {
-      const response = await axios.get("http://localhost:4100/getdata", {
+      const response = await axios.get("https://mad-stuffs-uc64.vercel.app/getdata", {
         withCredentials: true,
       });
       setData(response.data);
@@ -43,7 +43,7 @@ function ActionAreaCard() {
 
   const handleDelete = async (post_id) => {
     await axios
-      .delete(`http://localhost:4100/deletepost/${post_id}`)
+      .delete(`https://mad-stuffs-uc64.vercel.app/deletepost/${post_id}`)
       .then((response) => {
         toast.success("Deleted the post successfully");
         navigate("/");
@@ -63,7 +63,7 @@ function ActionAreaCard() {
                       to={`/eachonly/${each._id}`}
                       style={{ textDecoration: "none", color: "black" }}
                     >
-                      <CardMedia component="img" height="150" image={`http://localhost:4100/uploads/${each.image_name}`} />
+                      <CardMedia component="img" height="150" image={`https://mad-stuffs-uc64.vercel.app/uploads/${each.image_name}`} />
 
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

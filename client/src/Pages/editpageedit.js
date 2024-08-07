@@ -6,11 +6,11 @@ import {
   Grid,
   TextField,
 } from "@mui/material";
-import axios from "axios";
-import React, { useEffect, useState, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import ReactQuill from "react-quill";
 import Button from "@mui/material/Button";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import ReactQuill from "react-quill";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LogContext } from "../component/logcontext.js";
@@ -34,7 +34,7 @@ const EditPage = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("http://localhost:4100/getuser", {
+        .get("https://mad-stuffs-uc64.vercel.app/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -46,7 +46,7 @@ const EditPage = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
+      const response = await axios.get(`https://mad-stuffs-uc64.vercel.app/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -65,7 +65,7 @@ const EditPage = () => {
       content: content,
     };
     await axios
-      .put("http://localhost:4100/updatepost", updatedDetails)
+      .put("https://mad-stuffs-uc64.vercel.app/updatepost", updatedDetails)
       .then((response) => {
         toast.success(response.data.message);
       });
@@ -90,7 +90,7 @@ const EditPage = () => {
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={`http://localhost:4100/uploads/${details.image_name}`}
+                image={`https://mad-stuffs-uc64.vercel.app/uploads/${details.image_name}`}
               />
 
               <CardContent>

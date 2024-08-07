@@ -12,7 +12,7 @@ const DisplayComments = () => {
     async function fetchcomments() {
       try{
       const response = await axios.get(
-        `http://localhost:4100/getcomments/${id}`,
+        `https://mad-stuffs-uc64.vercel.app/getcomments/${id}`,
         {
           withCredentials: true,
         }

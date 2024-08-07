@@ -9,7 +9,7 @@ export const LogProvider = ({ children }) => {
   useEffect(() => {
     const checkToken = async () => {
       await axios
-        .get("http://localhost:4100/logcheck", {
+        .get("https://mad-stuffs-uc64.vercel.app/logcheck", {
           withCredentials: true,
         })
         .then((response) => {

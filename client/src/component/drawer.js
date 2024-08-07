@@ -1,24 +1,24 @@
-import * as React from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Avatar, CircularProgress } from "@mui/material";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
+import CardHeader from "@mui/material/CardHeader";
 import Divider from "@mui/material/Divider";
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import CardHeader from "@mui/material/CardHeader";
-import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import { NavLink, useNavigate } from "react-router-dom";
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { Box } from "@mui/system";
+import axios from "axios";
+import * as React from "react";
+import { useContext, useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import { useEffect, useState, useContext } from "react";
-import { Avatar, CircularProgress } from "@mui/material";
 import { LogContext } from "./logcontext.js";
 
 export default function SwipeableTemporaryDrawer() {
@@ -30,7 +30,7 @@ export default function SwipeableTemporaryDrawer() {
     async function func() {
       if (logged == true) {
         await axios
-          .get("http://localhost:4100/getuser", {
+          .get("https://mad-stuffs-uc64.vercel.app/getuser", {
             withCredentials: true,
           })
           .then((response) => {
@@ -57,7 +57,7 @@ export default function SwipeableTemporaryDrawer() {
     event.preventDefault();
 
     await axios
-      .get("http://localhost:4100/logout", {
+      .get("https://mad-stuffs-uc64.vercel.app/logout", {
         withCredentials: true,
       })
       .then(() => {

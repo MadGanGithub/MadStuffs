@@ -9,9 +9,9 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import DisplayComments from "../component/displaycomments.js";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DisplayComments from "../component/displaycomments.js";
 
 const Comment = () => {
   const { id } = useParams();
@@ -28,7 +28,7 @@ const Comment = () => {
       comment: comment,
     };
     await axios
-      .post(`http://localhost:4100/comments/${id}`, commentDetails)
+      .post(`https://mad-stuffs-uc64.vercel.app/comments/${id}`, commentDetails)
       .then((response) => {
         toast.success(response.data.message);
         window.location.reload();

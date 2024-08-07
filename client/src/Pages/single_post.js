@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SinglePost = () => {
   const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const SinglePost = () => {
   useEffect(() => {
     async function func() {
       await axios
-        .get("http://localhost:4100/getuser", {
+        .get("https://mad-stuffs-uc64.vercel.app/getuser", {
           withCredentials: true,
         })
         .then((response) => {
@@ -45,7 +45,7 @@ const SinglePost = () => {
     formData.append('file', image);
     var name;
 
-    await axios.post("http://localhost:4100/upload", formData, {
+    await axios.post("https://mad-stuffs-uc64.vercel.app/upload", formData, {
       withCredentials: true,
     })
     .then((response) => {
@@ -61,7 +61,7 @@ const SinglePost = () => {
     };
 
     await axios
-      .post("http://localhost:4100/newpost", details, {
+      .post("https://mad-stuffs-uc64.vercel.app/newpost", details, {
         withCredentials: true,
       })
       .then((response) => {

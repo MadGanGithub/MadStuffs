@@ -1,10 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Comment from "../component/comment.js";
 
 const Display = () => {
@@ -15,7 +15,7 @@ const Display = () => {
   useEffect(() => {
     async function fetchData() {
       try{
-      const response = await axios.get(`http://localhost:4100/geteach/${id}`, {
+      const response = await axios.get(`https://mad-stuffs-uc64.vercel.app/geteach/${id}`, {
         withCredentials: true,
       });
 
@@ -46,7 +46,7 @@ const Display = () => {
               component="img"
               alt="green iguana"
               height="140"
-              image={`http://localhost:4100/uploads/${details.image_name}`}
+              image={`https://mad-stuffs-uc64.vercel.app/uploads/${details.image_name}`}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

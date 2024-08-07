@@ -1,17 +1,16 @@
-import * as React from "react";
+import { CardActionArea } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import { Box } from "@mui/system";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import * as React from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { LogContext } from "./logcontext";
 import { SearchContext } from "./searchcontext.js";
 import "./style.css";
-import { useContext } from "react";
-import { LogContext } from "./logcontext";
 
 
 function ActionAreaCard() {
@@ -24,7 +23,7 @@ function ActionAreaCard() {
     async function func() {
       try{
       const response = await axios.get(
-        `http://localhost:4100/getdata?search=${searchResults}`,
+        `https://mad-stuffs-uc64.vercel.app/getdata?search=${searchResults}`,
         {
           withCredentials: true,
         }
@@ -56,7 +55,7 @@ function ActionAreaCard() {
               <Box sx={{ mb: 5 }} key={each._id}>
                 <Card sx={{ width: { xs: 400,sm: 800 }}} key={each._id}>
                   <CardActionArea key={each._id}>
-                    <CardMedia component="img" height="150" image={`http://localhost:4100/uploads/${each.image_name}`} />
+                    <CardMedia component="img" height="150" image={`https://mad-stuffs-uc64.vercel.app/uploads/${each.image_name}`} />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         {each.title}
