@@ -1,11 +1,11 @@
-import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import userRoutes from "./routes/userRoutes.js";
 import cors from "cors";
+import express from "express";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from 'url';
+import userRoutes from "./routes/userRoutes.js";
 
 // Create __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -33,7 +33,6 @@ app.use(bodyParser.json())
 
 //User
 app.use("/",userRoutes)
-
 
 // Configure multer storage
 const storage = multer.diskStorage({

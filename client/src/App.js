@@ -1,18 +1,18 @@
-import "./App.css";
-import AppBar from "./component/appbar.js";
 import { Route, Routes } from "react-router-dom";
+import "./App.css";
 import About from "./Pages/about.js";
-import Home from "./Pages/home.js";
 import Contact from "./Pages/contact.js";
-import SinglePost from "./Pages/single_post.js";
-import Login from "./Pages/login.js";
-import SignUp from "./Pages/signup.js";
 import Display from "./Pages/display.js";
 import EditPage from "./Pages/editpage.js";
 import DisplayEdit from "./Pages/editpageedit.js";
+import Home from "./Pages/home.js";
+import Login from "./Pages/login.js";
+import SignUp from "./Pages/signup.js";
+import SinglePost from "./Pages/single_post.js";
+import AppBar from "./component/appbar.js";
 import Fab from "./component/fab.js";
-import { SearchProvider } from "./component/searchcontext.js";
 import { LogProvider } from "./component/logcontext.js";
+import { SearchProvider } from "./component/searchcontext.js";
 
 function App() {
   return (
